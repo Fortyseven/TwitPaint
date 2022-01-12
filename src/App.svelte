@@ -1,5 +1,5 @@
 <script>
-  import CanvasGrid from "./components/CanvasGrid.svelte";
+  import CanvasGrid from "./components/Canvas/CanvasGrid.svelte";
   // export let name;
 </script>
 
