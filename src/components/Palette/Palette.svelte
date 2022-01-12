@@ -1,6 +1,5 @@
 <script>
   import { onDestroy } from "svelte";
-
   import colors from "../../colors.js";
   import {
     CANVAS_WIDTH,
@@ -38,30 +37,19 @@
       on:click={(ev) => selectColor(i, ev)}
     />
   {/each}
-  <br />
-  <div class="label">Pen</div>
-  <div
-    class="swatch current-color"
-    style="background-color:{colors[currentColor_store].css}"
-  />
 </div>
 
 <style>
   .palette {
-    display: inline-block;
-    height: 400px;
+    display: grid;
+    height: 25%;
     background: black;
     color: white;
-  }
-  .label {
-    color: white;
-    background: black;
-    font-weight: bold;
-    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .swatch {
-    width: 32px;
-    height: 32px;
+    /* width: 32px;
+    height: 32px; */
     border: 1px solid #333;
     color: white;
   }

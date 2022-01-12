@@ -2,6 +2,7 @@
   import CanvasGrid from "./components/Canvas/Canvas.svelte";
   import Palette from "./components/Palette/Palette.svelte";
   import Output from "./components/Output/Output.svelte";
+  import PenIndicator from "./components/PenIndicator/PenIndicator.svelte";
 </script>
 
 <main>
@@ -9,6 +10,7 @@
     <div class="col left"><CanvasGrid /></div>
     <div class="col right">
       <Palette />
+      <PenIndicator />
       <Output />
     </div>
   </div>

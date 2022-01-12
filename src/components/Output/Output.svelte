@@ -27,6 +27,7 @@
 <style>
   .wrapper {
     font-family: monospace;
+    height: auto;
     background: rgb(21, 32, 43);
     padding: 1em;
     display: inline-block;
