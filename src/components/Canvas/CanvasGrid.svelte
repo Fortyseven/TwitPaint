@@ -47,6 +47,6 @@
   .canvas-row {
     margin: 0;
     padding: 0;
-    height: 16px;
+    height: 64px;
   }
 </style>

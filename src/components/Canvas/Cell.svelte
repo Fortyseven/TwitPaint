@@ -24,9 +24,8 @@
   cell {
     color: #333;
     display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-top: 1px solid #222;
-    border-right: 1px solid #222;
+    width: 64px;
+    height: 64px;
+    border: 1px solid #222;
   }
 </style>
