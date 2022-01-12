@@ -1,30 +1,40 @@
 <script>
-  import CanvasGrid from "./components/Canvas/CanvasGrid.svelte";
-  // export let name;
+  import CanvasGrid from "./components/Canvas/Canvas.svelte";
+  import Palette from "./components/Palette/Palette.svelte";
+  import Output from "./components/Output/Output.svelte";
 </script>
 
 <main>
-  <CanvasGrid />
+  <div class="container">
+    <div class="col left"><CanvasGrid /></div>
+    <div class="col right">
+      <Palette />
+      <Output />
+    </div>
+  </div>
 </main>
 
 <style>
+  :root {
+    --pixel-size: 48px;
+  }
+
   main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    width: 625px;
+    margin: auto;
+    user-select: none;
+  }
+  .container {
+    display: inline-flex;
+    /* flex-direction: column; */
+    flex-wrap: nowrap;
+  }
+  .container > div {
+    flex: 1 1 auto;
   }
 
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  .container .right {
+    display: flex;
+    flex-direction: column;
   }
 </style>

@@ -1,31 +1,45 @@
 <script>
-  /*
-🟩 Large Green Square
-*/
+  import { onDestroy } from "svelte";
 
+  import colors from "../../colors.js";
+  import { isMouseDown } from "../../store";
   export var color = 5;
+  export var x;
+  export var y;
+  export var onInteract = () => {};
 
-  const colors = {
-    0: "black",
-    1: "white",
-    2: "green",
-    3: "blue",
-    4: "brown",
-    5: "orange",
-    6: "purple",
-    7: "red",
-    8: "yellow",
-  };
+  let mouseDownStore = false;
+
+  let mouseDownUnsub = isMouseDown.subscribe(
+    (value) => (mouseDownStore = value)
+  );
+  onDestroy(mouseDownUnsub);
+
+  function doOnInteract(isClick, ev) {
+    if (mouseDownStore || isClick) {
+      onInteract(x, y, ev);
+    }
+  }
 </script>
 
-<cell style="background-color:{colors[color]}">&nbsp;</cell>
+<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+<div
+  class="cell"
+  on:mouseover={(ev) => doOnInteract(false, ev)}
+  on:mousedown={(ev) => doOnInteract(true, ev)}
+  style="background-color:{colors[color].css}"
+>
+  &nbsp;
+</div>
 
 <style>
-  cell {
-    color: #333;
+  div.cell {
+    color: #000;
     display: inline-block;
-    width: 64px;
-    height: 64px;
-    border: 1px solid #222;
+    width: var(--pixel-size);
+    height: var(--pixel-size);
+    border: 1px solid #111;
+    cursor: pointer;
+    user-select: none;
   }
 </style>
