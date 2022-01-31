@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "rollup -c",
+        "build:rollup": "rollup -c",
+        "build": "npm run build:rollup && rsync -a public/* docs",
         "dev": "rollup -c -w",
         "start": "sirv public --no-clear"
     },
