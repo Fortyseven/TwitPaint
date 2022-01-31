@@ -3,6 +3,7 @@
   import { framebuffer } from "../../store";
   import colors from "../../colors.js";
 
+  let outputRef;
   let framebuffer_store = [];
 
   let framebufferUnsub = framebuffer.subscribe(
@@ -10,11 +11,19 @@
   );
 
   onDestroy(framebufferUnsub);
+
+  function onClickCopy() {
+    if (navigator && navigator.clipboard) {
+      navigator.clipboard.writeText(
+        outputRef.textContent.replaceAll(" ", "\n")
+      );
+    }
+  }
 </script>
 
 <div class="output">
   <div class="label">Output</div>
-  <div class="wrapper">
+  <div class="wrapper" on:click={onClickCopy} bind:this={outputRef}>
     {#each framebuffer_store as y, y_index}
       {#each y as x, x_index}
         {colors[x].text}
